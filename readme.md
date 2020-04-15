@@ -1,6 +1,5 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/5a769dc3ad5a44dc80056de6391ccd8d)](https://app.codacy.com/manual/srivatsams/spring-petclinic?utm_source=github.com&utm_medium=referral&utm_content=srivatsamarichi/spring-petclinic&utm_campaign=Badge_Grade_Dashboard)
 [![Build Status](https://travis-ci.org/spring-projects/spring-petclinic.png?branch=master)](https://travis-ci.org/spring-projects/spring-petclinic/)
-
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=srivatsamarichi_spring-petclinic&metric=alert_status)](https://sonarcloud.io/dashboard?id=srivatsamarichi_spring-petclinic)
 
 # Spring PetClinic Sample Application 
