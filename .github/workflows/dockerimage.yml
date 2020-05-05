@@ -1,0 +1,42 @@
+name: Spring-Petclinic.Docker
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    name: build
+    runs-on: self-hosted
+
+    steps:
+    - uses: actions/checkout@v2
+      name: Checkout
+      
+    - name: Docker login
+      uses: azure/docker-login@v1
+      with:
+        login-server: ''
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+    
+    - name: Install Trivy
+      run: |
+        #!/bin/bash
+        sudo apt-get install wget apt-transport-https gnupg lsb-release
+        wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo apt-key add -
+        echo deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main | sudo tee -a /etc/apt/sources.list.d/trivy.list
+        sudo apt-get update
+        sudo apt-get install trivy
+        echo $HOME/Library/Caches
+    
+    - name: build, scan and tag image
+      run: |
+        docker build -f ./Dockerfile -t spring-petclinic:${{ github.run_number }} .
+        trivy --exit-code 0 --severity MEDIUM,HIGH spring-petclinic:${{ github.run_number }}
+    
+    - name: push image to dockerhub
+      run: |
+        docker push spring-petclinic:${{ github.run_number }}
