@@ -47,4 +47,5 @@ jobs:
     
     - name: push image to dockerhub
       run: |
+        docker login -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }}
         docker push ${{ secrets.REGISTRY_USERNAME }}/spring-petclinic:${{ github.run_number }}
