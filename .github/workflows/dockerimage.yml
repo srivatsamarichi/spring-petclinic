@@ -46,4 +46,4 @@ jobs:
     
     - name: push image to dockerhub
       run: |
-        docker push spring-petclinic:${{ github.run_number }}
+        docker push srivatsamarichi/spring-petclinic:${{ github.run_number }}
