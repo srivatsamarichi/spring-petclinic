@@ -41,10 +41,10 @@ jobs:
     
     - name: build, scan and tag image
       run: |
-        docker build -f ./Dockerfile -t srivatsamarichi/spring-petclinic:${{ github.run_number }} .
+        docker build -f ./Dockerfile -t ${{ secrets.REGISTRY_USERNAME }}/spring-petclinic:${{ github.run_number }} .
         docker images
-        trivy --exit-code 0 --severity MEDIUM,HIGH srivatsamarichi/sping-petclinic:${{ github.run_number }}
+        trivy --exit-code 0 --severity MEDIUM,HIGH ${{ secrets.REGISTRY_USERNAME }}/spring-petclinic:${{ github.run_number }}
     
     - name: push image to dockerhub
       run: |
-        docker push srivatsamarichi/spring-petclinic:${{ github.run_number }}
+        docker push ${{ secrets.REGISTRY_USERNAME }}/spring-petclinic:${{ github.run_number }}
