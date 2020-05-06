@@ -42,7 +42,6 @@ jobs:
     - name: build, scan and tag image
       run: |
         docker build -f ./Dockerfile -t ${{ secrets.REGISTRY_USERNAME }}/spring-petclinic:${{ github.run_number }} .
-        docker images
         trivy --exit-code 0 --severity MEDIUM,HIGH ${{ secrets.REGISTRY_USERNAME }}/spring-petclinic:${{ github.run_number }}
     
     - name: push image to dockerhub
