@@ -48,6 +48,7 @@ jobs:
         docker build -f ./Dockerfile -t ${{ secrets.REGISTRY_USERNAME }}/spring-petclinic:${{ github.run_number }} .
         docker build -f ./Dockerfile -t spring-petclinic:${{ github.run_number }} .
         trivy --exit-code 0 --severity MEDIUM,HIGH ${{ secrets.REGISTRY_USERNAME }}/spring-petclinic:${{ github.run_number }}
+        docker tag spring-petclinic:${{ github.run_number }} docker.pkg.github.com/srivatsamarichi/spring-petclinic/spring-petclinic:${{ github.run_number }}
     
     - name: push image to dockerhub
       run: |
