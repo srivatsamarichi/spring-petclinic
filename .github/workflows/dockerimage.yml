@@ -55,4 +55,4 @@ jobs:
 
     - name: push image to GitHub Packages
       run: |
-        docker push docker.pkg.github.com/srivatsamarichi/spring-petclinic/spring-petclinic:${{ github.run_number }}
+        docker push docker.pkg.github.com/srivatsamarichi/spring-petclinic:${{ github.run_number }}
