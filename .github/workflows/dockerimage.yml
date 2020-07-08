@@ -1,6 +1,8 @@
 name: Spring-Petclinic.Docker
 
 on:
+  schedule:
+    - cron: '0 0 * * *'
   push:
     branches: [ master, srivatsamarichi-patch-1 ]
   pull_request:
