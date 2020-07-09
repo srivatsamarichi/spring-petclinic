@@ -25,7 +25,7 @@ jobs:
     
     - name: Create a folder
       run: |
-        mkdir d:\a_msca\versions\temp
+        mkdir d:\a\_msca\versions\temp
         dir
         
       # Run open source static analysis tools
