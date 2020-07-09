@@ -22,7 +22,12 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: '3.1.201'
-
+    
+    - name: Create a folder
+      run: |
+        mkdir d:\a_msca\versions\temp
+        dir
+        
       # Run open source static analysis tools
     - name: Run OSSAR
       uses: github/ossar-action@v1
