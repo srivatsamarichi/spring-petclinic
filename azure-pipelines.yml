@@ -12,7 +12,7 @@ pool:
 variables:
   imageName: 'spring-petclinic:$(build.buildId)'
   azureSubscriptionEndpoint: MSDN-Srivatsa
-  azureContainerRegistry: mhcnew.azurecr.io
+  azureContainerRegistry: darquewarrior.azurecr.io
 
 steps:
 - task: Maven@3
