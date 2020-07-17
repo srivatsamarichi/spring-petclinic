@@ -11,7 +11,7 @@ pool:
 
 variables:
   imageName: 'spring-petclinic:$(build.buildId)'
-  azureSubscriptionEndpoint: MSDN-Srivatsa
+  azureSubscriptionEndpoint: sriplayground
   azureContainerRegistry: darquewarrior.azurecr.io
 
 steps:
