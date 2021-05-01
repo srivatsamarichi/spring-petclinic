@@ -1,0 +1,27 @@
+version: 2
+updates:
+- package-ecosystem: maven
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "23:30"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: io.spring.nohttp:nohttp-checkstyle
+    versions:
+    - 0.0.6.RELEASE
+  - dependency-name: com.puppycrawl.tools:checkstyle
+    versions:
+    - "8.39"
+    - "8.40"
+    - "8.41"
+    - 8.41.1
+  - dependency-name: org.apache.maven.plugins:maven-checkstyle-plugin
+    versions:
+    - 3.1.2
+  - dependency-name: org.webjars:bootstrap
+    versions:
+    - 4.6.0
+  - dependency-name: io.spring.javaformat:spring-javaformat-maven-plugin
+    versions:
+    - 0.0.27
